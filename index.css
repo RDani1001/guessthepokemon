@@ -111,3 +111,13 @@ img{
 .btnn:active{
     background: rgb(94, 76, 255);
 }
+
+@media only screen and (max-width: 800px){
+    .borde-tit{
+        width: 550px;
+    }
+    #cabecera{
+    height: 145px;
+    font-size: 45px;
+    }
+}
