@@ -148,6 +148,10 @@ img{
     }
     #btn{
         margin-top: 10px;
+        font-size: 13px;
+    }
+    .btnn{
+        font-size: 13px;
     }
     #namep{
         width: 80%;
