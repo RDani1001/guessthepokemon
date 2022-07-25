@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+}
+body{
+    background: radial-gradient(circle,rgb(68, 68, 132),rgb(30, 30, 191));
+    background-repeat:round;
+    width: 100%;
+}
+#main{
+    margin-top: 5%;
+    width: 100%;
+}
+img{
+    height: 230px;
+    z-index: 1;
+    margin-top: -10px;
+    margin-left: -7px;
+}
+#name{
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#cabecera{
+    width: 99%;
+    background: rgba(19, 31, 169, 0.928);
+    color: rgb(252, 254, 231);
+    height: 110px;
+    padding-top: 1%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 10px;
+    font-size: 60px;
+    box-shadow: 0px 0px 5px 7px rgba(16, 25, 127, 0.939);
+    border: 2px solid rgba(16, 25, 127, 0.939);
+    border-radius: 2px;
+}
+#input{
+    margin-top: 20px;
+}
+#titulo{
+    margin: 5px;
+}
+.borde-tit{
+    width: 750px;
+    border: 5px solid rgb(14, 21, 107);
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px 3px rgb(14, 21, 107);
+    background: radial-gradient(circle,rgb(68, 68, 132),rgb(30, 30, 191));
+}
+#namep{
+    outline: none;
+    border-radius: 20px;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-bottom: 2px dashed;
+    border-left: 2px dashed;
+    height: 40px;
+    width: 250px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 20px;
+    background: rgb(67, 49, 225);
+}
+#namep:focus{
+    border-top: 2px solid;
+    border-right: 2px dashed;
+    border-bottom: 2px solid;
+    border-left: 2px dashed;
+}
+#btn{
+    border-radius: 10px;
+    height: 40px;
+    width: 70px;
+    font-size: 16px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+    background: rgb(87, 70, 235);
+    color: antiquewhite;
+}
+#btn:hover{
+    background: rgb(75, 56, 244);
+}
+#btn:active{
+    background: rgb(94, 76, 255);
+}
+#imagenes{
+    width: 220px;
+    height: 210px;
+    z-index: 50;
+    border: 5px solid rgb(14, 21, 107);
+    border-radius: 20px;
+    background: radial-gradient(circle,rgb(68, 68, 132),rgb(30, 30, 191));
+}
+.btnn{
+    border-radius: 10px;
+    height: 40px;
+    width: 70px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+    background: rgb(87, 70, 235);
+    color: antiquewhite;
+}
+.btnn:hover{
+    background: rgb(75, 56, 244);
+}
+.btnn:active{
+    background: rgb(94, 76, 255);
+}
