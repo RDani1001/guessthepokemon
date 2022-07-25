@@ -24,6 +24,8 @@ img{
 }
 #cabecera{
     width: 99%;
+    display: flex;
+    justify-content: center;
     background: rgba(19, 31, 169, 0.928);
     color: rgb(252, 254, 231);
     height: 110px;
@@ -44,7 +46,7 @@ img{
     margin: 5px;
 }
 .borde-tit{
-    width: 750px;
+    width: 60%;
     border: 5px solid rgb(14, 21, 107);
     border-radius: 20px;
     box-shadow: 0px 2px 5px 3px rgb(14, 21, 107);
@@ -116,12 +118,38 @@ img{
     background: rgb(94, 76, 255);
 }
 
+@media only screen and (max-width: 1200px){
+    .borde-tit{
+        width: 550px;
+        height: 80px;
+    }
+    #cabecera{
+        font-size: 40px;
+    }
+}
 @media only screen and (max-width: 800px){
     .borde-tit{
         width: 550px;
+        height: 120px;
     }
     #cabecera{
-    height: 145px;
-    font-size: 45px;
+        height: 20%;
+        font-size: 45px;
+    }
+}
+@media only screen and (max-width: 400px){
+    .borde-tit{
+        width: 98%;
+        height: 5%;
+    }
+    #cabecera{
+        width: 98%;
+        font-size: 30px;
+    }
+    #btn{
+        margin-top: 10px;
+    }
+    #namep{
+        width: 80%;
     }
 }
