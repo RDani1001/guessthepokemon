@@ -34,6 +34,8 @@ img{
     box-shadow: 0px 0px 5px 7px rgba(16, 25, 127, 0.939);
     border: 2px solid rgba(16, 25, 127, 0.939);
     border-radius: 2px;
+    transition-property: height,font-size,width;
+    transition-duration: 0.5s;
 }
 #input{
     margin-top: 20px;
@@ -47,6 +49,8 @@ img{
     border-radius: 20px;
     box-shadow: 0px 2px 5px 3px rgb(14, 21, 107);
     background: radial-gradient(circle,rgb(68, 68, 132),rgb(30, 30, 191));
+    transition-property: width;
+    transition-duration: 0.5s;
 }
 #namep{
     outline: none;
