@@ -7,7 +7,7 @@ body{
     width: 100%;
 }
 #main{
-    margin-top: 5%;
+    margin-top: 1%;
     width: 100%;
 }
 img{
@@ -101,9 +101,8 @@ img{
 }
 .btnn{
     border-radius: 10px;
-    height: 40px;
+    height: 60px;
     width: 70px;
-    margin-bottom: 12px;
     font-size: 16px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     letter-spacing: 2px;
@@ -116,6 +115,43 @@ img{
 }
 .btnn:active{
     background: rgb(94, 76, 255);
+}
+#pista{
+    top: 60px;
+    font-size: 15px;
+    height: 56px;
+    width: 120px;
+}
+#name-pistas{
+    display: inline-flex;
+    justify-content: center;
+}
+#names{
+    display: inline-flex;
+    position: absolute;
+    height: 9%;
+    margin-left: 15px;
+}
+#bars{
+    display: inline-flex;
+}
+.barnombre{
+    font-size: 75px;
+    margin-right: 5px;
+    margin-top: -25px;
+}
+.nombre{
+    font-size: 50px;
+    margin-right: 10px;
+}
+#name-1{
+    margin-left: -10px !important;
+}
+.active{
+    visibility: visible;
+}
+.desactive{
+    visibility: hidden;
 }
 
 @media only screen and (max-width: 1200px){
