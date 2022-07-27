@@ -23,6 +23,7 @@ function cargar() {
     let bars = document.getElementById("bars");
     names.innerHTML = "";
     bars.innerHTML = "";
+    intpist = 3;
     fotoimg();
     let name = document.querySelector("#name");
     name.textContent= "¿Quién es?";
