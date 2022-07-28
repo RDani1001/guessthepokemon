@@ -1,4 +1,7 @@
 const pokemon = document.querySelector("#img");
+const barnamecon = document.getElementById("name-pistas");
+const names = document.getElementById("names");
+const bars = document.getElementById("bars");
 
 var nombresp = ["bulbasaur","ivysaur","venusaur","charmander","charmeleon","charizard","squirtle","wartortle","blastoise","caterpie","metapod","butterfree","weedle","kakuna","beedrill",
 "pidgey","pidgeotto","pidgeot","rattata","raticate","spearow","fearow","ekans","arbok","pikachu","sandshrew","sandslash","clefairy","clefable","vulpix","ninetales","jigglypuff",
@@ -29,6 +32,7 @@ function cargar() {
     name.textContent= "¿Quién es?";
     let namep = document.getElementById("namep");
     namep.value = "";
+    pists = [];
 }
 
 function renderPokemon(image) {
@@ -57,9 +61,6 @@ function fotoimg() {
     let pokefail = nombresp[nran];
         console.log(pokefail);
     console.log(numname);
-    let barnamecon = document.getElementById("name-pistas");
-    let names = document.getElementById("names");
-    let bars = document.getElementById("bars");
     let fragmentonames = document.createDocumentFragment();
     let fragmentobars = document.createDocumentFragment();
     for (let i = 1; i <= numname ; i++) {
@@ -85,45 +86,44 @@ function fotoimg() {
 }
 
 function pista() {
-    let nranm;
-    let flag = 0;
     if(intpist>0){
-    do{
-    let nran = Math.round(Math.random()*numnamedef);
-    if(nran ==0){
-        nranm = nran + 1;
-    }
-    else{
-        nranm = nran;
-    }
-    if(flag2==1){
-    for (let i = 0; i <= pists.length; i++) {
-        if(nranm==pists[i]){
-            if(flag==1){
-                break;
-            }else{
-                flag = 1;
+        let nranm;
+        let flag = 0;
+        do{
+                let nran = Math.round(Math.random()*numnamedef);
+            if(nran ==0){
+                nranm = nran + 1;
             }
-        }else{
-            if(flag==0){
-                break;
-            }else{
-                flag = 0;
+            else{
+                nranm = nran;
             }
-        }
-    }
+            if(flag2==1){
+                if (pists.includes(nranm)) {
+                    flag = 1;
+                }else{
+                    flag = 0;
+                }
+            }else{
+                flag2= 1;
+            }
+        }while(flag==1);
+            intpist = intpist-1;
+            pists.push(nranm);
+            let pist = document.getElementById(`name-${nranm}`);
+            pist.classList.remove("desactive");
+            pist.classList.add("active");
+            let numpist = document.getElementById("pista");
+            numpist.textContent = `Pista pistas-${intpist}`;
     }else{
-        flag2= 1;
+        let numpist = document.getElementById("pista");
+        numpist.textContent = `Te has quedado sin pistas`;
+        numpist.classList.add("red");
+        setTimeout(function regresar(){
+            let numpist = document.getElementById("pista");
+            numpist.textContent = `Pista pistas-${intpist}`;
+            numpist.classList.remove("red");
+        }, 2000);
     }
-    }while(flag==1);
-    intpist = intpist-1;
-    }
-    pists.push(nranm);
-    let pist = document.getElementById(`name-${nranm}`);
-    pist.classList.remove("desactive");
-    pist.classList.add("active");
-    let numpist = document.getElementById("pista");
-    numpist.textContent = `Pista pistas-${intpist}`;
 }
 
 function espoke() {

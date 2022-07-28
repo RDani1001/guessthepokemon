@@ -153,6 +153,9 @@ img{
 .desactive{
     visibility: hidden;
 }
+.red{
+    color: rgb(202, 17, 17);
+}
 
 @media only screen and (max-width: 1200px){
     .borde-tit{
