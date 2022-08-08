@@ -20,19 +20,45 @@ var numnamedef;
 var pists = [];
 var flag2 = 0;
 var intpist = 3;
+var count = 0;
+
+function recargar() {
+    window.location.reload();
+}
 
 function cargar() {
-    let names = document.getElementById("names");
-    let bars = document.getElementById("bars");
-    names.innerHTML = "";
-    bars.innerHTML = "";
+    if(count>8){
+        let divwin = document.querySelector(".victory");
+        divwin.style.display = "block";
+        let game = document.querySelector(".game");
+        game.style.display = "none";
+    }else{
+    barnamecon.innerHTML = "";
     intpist = 3;
     fotoimg();
     let name = document.querySelector("#name");
+    name.innerHTML = "";
     name.textContent= "¿Quién es?";
     let namep = document.getElementById("namep");
     namep.value = "";
     pists = [];
+    }
+}
+
+function saltar() {
+    barnamecon.innerHTML = "";
+    intpist = 3;
+    fotoimg();
+    let name = document.querySelector("#name");
+    name.innerHTML = "";
+    name.textContent= `Racha reiniciada`;
+    setTimeout(function racha(){
+        name.textContent= `¿Quién es?`;
+    },1000)
+    let namep = document.getElementById("namep");
+    namep.value = "";
+    pists = [];
+    count = 0;
 }
 
 function renderPokemon(image) {
@@ -49,38 +75,34 @@ function fotoimg() {
     pok= "https://pokeapi.co/api/v2/pokemon/"+ nombrep;
     fetch(pok)
     .then(response => response.json())
+    .then(pokemons => {
+        renderPokemon(pokemons.sprites.front_default);
+    })
     .catch(function () {
         console.log("fallo");
         console.log(nran);
         let pokefail = nombresp[nran];
         console.log(pokefail);
     })
-    .then(pokemons => {
-        renderPokemon(pokemons.sprites.front_default);
-    })
     let pokefail = nombresp[nran];
         console.log(pokefail);
     console.log(numname);
-    let fragmentonames = document.createDocumentFragment();
-    let fragmentobars = document.createDocumentFragment();
-    for (let i = 1; i <= numname ; i++) {
-        let barname = document.createElement("h1");
-        barname.setAttribute("id",`name-${i}`);
-        barname.setAttribute("class",`nombre`);
-        barname.classList.add("desactive");
-        barname.textContent = prenumname[i-1].toUpperCase();
-        let bar = document.createElement("h1");
-        bar.setAttribute("id",`bar-${i}`);
-        bar.setAttribute("class",`barnombre`);
-        bar.textContent = "_";
-        fragmentonames.appendChild(barname);
-        fragmentobars.appendChild(bar);
-    }
-    names.appendChild(fragmentonames);
-    bars.appendChild(fragmentobars);
-    barnamecon.appendChild(names);
-    barnamecon.appendChild(bars);
     nompa = nombrep;
+    let fragmento = document.createDocumentFragment();
+    for(let i = 1 ; i<= numname;i++){
+        let divcontainer = document.createElement("div");
+        divcontainer.classList.add("letter");
+        let letter = document.createElement('h1');
+        letter.setAttribute("id",`nombre-${i}`);
+        letter.textContent = prenumname[i-1].toUpperCase();
+        letter.classList.add("desactive");
+        let underline = document.createElement("h1");
+        underline.textContent = "¯¯";
+        divcontainer.appendChild(letter);
+        divcontainer.appendChild(underline);
+        fragmento.appendChild(divcontainer);
+    }
+    barnamecon.appendChild(fragmento);
     let numpist = document.getElementById("pista");
     numpist.textContent = `Pista pistas-${intpist}`;
 }
@@ -90,7 +112,7 @@ function pista() {
         let nranm;
         let flag = 0;
         do{
-                let nran = Math.round(Math.random()*numnamedef);
+            let nran = Math.round(Math.random()*numnamedef);
             if(nran ==0){
                 nranm = nran + 1;
             }
@@ -109,7 +131,7 @@ function pista() {
         }while(flag==1);
             intpist = intpist-1;
             pists.push(nranm);
-            let pist = document.getElementById(`name-${nranm}`);
+            let pist = document.getElementById(`nombre-${nranm}`);
             pist.classList.remove("desactive");
             pist.classList.add("active");
             let numpist = document.getElementById("pista");
@@ -139,11 +161,14 @@ function espoke() {
 function felicidades() {
     let name = document.querySelector("#name");
     for (let i = 1; i < numnamedef+1; i++) {
-        let pist = document.getElementById(`name-${i}`);
+        let pist = document.getElementById(`nombre-${i}`);
         pist.classList.remove("desactive");
         pist.classList.add("active");
     }
-    name.textContent= "!Felicidades¡ lo adivinaste c:";
+    count++;
+    name.innerHTML= `!Felicidades¡ lo adivinaste c:<br>
+    Racha: ${count}
+    `;
     setTimeout(function feli(){
         cargar();
     }, 4000);
@@ -151,7 +176,10 @@ function felicidades() {
 
 function intentalodn() {
     let name = document.querySelector("#name");
-    name.textContent= "Lo siento... no es la respuesta correcta :c";
+    name.innerHTML= `Lo siento... no es la respuesta correcta :c<br>
+    Racha reiniciada
+    `;
+    count = 0;
     setTimeout(function mali() {
         let name = document.querySelector("#name");
         name.textContent= "¿Quién es?";

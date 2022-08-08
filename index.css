@@ -6,6 +6,26 @@ body{
     background-repeat:round;
     width: 100%;
 }
+.victory{
+    display: none;
+    margin-top: 20%;
+}
+.win__text{
+    font-size: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(2, 255, 2);
+    text-shadow: 2px 2px 5px black;
+}
+.win__button{
+    margin-top: 30px;
+    outline: none;
+    border-radius: 10px;
+    height: 60px;
+    width: 400px;
+    font-size: 30px;
+    background-color: rgb(87, 110, 214);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 #main{
     margin-top: 1%;
     width: 100%;
@@ -123,29 +143,15 @@ img{
     width: 120px;
 }
 #name-pistas{
-    display: inline-flex;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content;
+    gap: 0.5em;
     justify-content: center;
 }
-#names{
-    display: inline-flex;
-    position: absolute;
-    height: 9%;
-    margin-left: 15px;
-}
-#bars{
-    display: inline-flex;
-}
-.barnombre{
-    font-size: 75px;
-    margin-right: 5px;
-    margin-top: -25px;
-}
-.nombre{
-    font-size: 50px;
-    margin-right: 10px;
-}
-#name-1{
-    margin-left: -10px !important;
+.letter{
+    display: grid;
+    grid-template-rows: max-content 10px;
 }
 .active{
     visibility: visible;
@@ -194,5 +200,8 @@ img{
     }
     #namep{
         width: 80%;
+    }
+    .letter > h1{
+        font-size: 25px;
     }
 }
